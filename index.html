@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Northwest Premier Yacht Management | Seattle &amp; Puget Sound</title>
+<meta name="description" content="Concierge-level yacht management for Seattle, Puget Sound, and the Pacific Northwest. Monthly vessel care, vendor coordination, and refit management from Northwest Premier Yacht Management.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A1826;
+    --navy:#0F2A44;
+    --navy-2:#123253;
+    --brass:#C6A15B;
+    --brass-bright:#E0BE7C;
+    --cream:#F6F2E9;
+    --cream-2:#EFE9DA;
+    --slate:#5C6B78;
+    --white:#FFFFFF;
+    --line: rgba(198,161,91,0.35);
+    --shadow: 0 20px 50px -20px rgba(10,24,38,0.35);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .eyebrow{
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--brass);
+    display:flex;
+    align-items:center;
+    gap:0.6rem;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;height:1px;
+    background:var(--brass);
+    display:inline-block;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 28px;}
+  :focus-visible{outline:2px solid var(--brass-bright); outline-offset:3px;}
+
+  /* ---------- Compass rose signature ---------- */
+  .compass{
+    display:inline-block;
+    transform-origin:50% 50%;
+  }
+  .compass path,.compass circle,.compass line{vector-effect:non-scaling-stroke;}
+
+  @media (prefers-reduced-motion: no-preference){
+    .hero-compass{ animation: settle 2.4s cubic-bezier(.16,1,.3,1) both; }
+    @keyframes settle{
+      from{ transform:rotate(-38deg) scale(0.92); opacity:0; }
+      to{ transform:rotate(0deg) scale(1); opacity:1; }
+    }
+    .reveal{
+      opacity:0; transform:translateY(18px);
+      transition:opacity .7s ease, transform .7s ease;
+    }
+    .reveal.in{opacity:1; transform:translateY(0);}
+  }
+
+  /* ---------- Nav ---------- */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:rgba(10,24,38,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px; max-width:1160px; margin:0 auto;
+  }
+  .brand{display:flex; align-items:center; gap:12px; color:var(--white); text-decoration:none;}
+  .brand-mark{width:34px; height:34px; flex-shrink:0;}
+  .brand-text{line-height:1.05;}
+  .brand-text .name{font-family:'Fraunces',serif; font-size:1.02rem; font-weight:600; letter-spacing:0.01em;}
+  .brand-text .sub{font-size:0.62rem; letter-spacing:0.18em; color:var(--brass); text-transform:uppercase;}
+  nav.links{display:flex; gap:28px; align-items:center;}
+  nav.links a{
+    color:var(--cream); text-decoration:none; font-size:0.88rem; font-weight:500;
+    opacity:0.85; transition:opacity .2s;
+  }
+  nav.links a:hover{opacity:1; color:var(--brass-bright);}
+  .nav-cta{
+    background:var(--brass); color:var(--ink) !important; opacity:1 !important;
+    padding:9px 18px; border-radius:2px; font-weight:600 !important; font-size:0.82rem !important;
+  }
+  .nav-cta:hover{background:var(--brass-bright); color:var(--ink) !important;}
+  .nav-phone{display:none;}
+  @media(max-width:760px){
+    nav.links a:not(.nav-cta){display:none;}
+    .brand-text .sub{display:none;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative; color:var(--white);
+    background:linear-gradient(180deg, rgba(10,24,38,0.55), rgba(10,24,38,0.86)), var(--ink);
+    background-size:cover; background-position:center;
+    padding:120px 0 100px;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background:radial-gradient(circle at 82% 18%, rgba(198,161,91,0.16), transparent 45%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    position:relative; z-index:2;
+    display:grid; grid-template-columns:1.15fr 0.6fr; gap:48px; align-items:center;
+  }
+  @media(max-width:860px){ .hero-grid{grid-template-columns:1fr;} }
+  .hero h1{
+    font-size:clamp(2.4rem, 5vw, 3.6rem);
+    line-height:1.05; margin:18px 0 20px; color:var(--white);
+  }
+  .hero h1 em{color:var(--brass-bright); font-style:italic;}
+  .hero p.lede{
+    font-size:1.08rem; line-height:1.6; color:rgba(246,242,233,0.85);
+    max-width:46ch; margin-bottom:32px;
+  }
+  .btn-row{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 26px; border-radius:2px; font-weight:600; font-size:0.92rem;
+    text-decoration:none; border:1px solid transparent; cursor:pointer;
+    transition:all .2s ease;
+  }
+  .btn-primary{background:var(--brass); color:var(--ink);}
+  .btn-primary:hover{background:var(--brass-bright); transform:translateY(-1px);}
+  .btn-ghost{border-color:rgba(246,242,233,0.4); color:var(--white);}
+  .btn-ghost:hover{border-color:var(--brass-bright); color:var(--brass-bright);}
+  .hero-compass-wrap{display:flex; justify-content:center; align-items:center;}
+  .hero-compass{width:min(320px, 80%); opacity:0.92;}
+
+  .coverage-strip{
+    position:relative; z-index:2;
+    margin-top:64px; padding-top:28px; border-top:1px solid rgba(246,242,233,0.18);
+    display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    font-size:0.85rem; color:rgba(246,242,233,0.75); letter-spacing:0.04em;
+  }
+  .coverage-strip .dot{color:var(--brass);}
+
+  /* ---------- Intro band ---------- */
+  .intro{
+    background:var(--cream); padding:88px 0 40px;
+  }
+  .intro-inner{max-width:760px;}
+  .intro h2{font-size:clamp(1.8rem,3.2vw,2.3rem); margin:16px 0 20px; line-height:1.2;}
+  .intro p{font-size:1.05rem; line-height:1.7; color:var(--slate);}
+
+  /* ---------- Wayfinder section header ---------- */
+  .section-head{
+    display:flex; align-items:baseline; gap:20px; margin-bottom:44px; flex-wrap:wrap;
+  }
+  .bearing{
+    font-family:'Fraunces',serif; font-style:italic; color:var(--brass);
+    font-size:0.95rem; white-space:nowrap;
+  }
+  .section-head h2{font-size:clamp(1.7rem,3vw,2.2rem);}
+
+  section{padding:84px 0;}
+  section.on-navy{background:var(--navy); color:var(--cream);}
+  section.on-navy .slate{color:rgba(246,242,233,0.72);}
+  .slate{color:var(--slate);}
+
+  /* ---------- Services ---------- */
+  .services-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px;}
+  @media(max-width:800px){.services-grid{grid-template-columns:1fr;}}
+  .service-col h3{
+    font-size:1.15rem; color:var(--brass-bright);
+    text-transform:uppercase; letter-spacing:0.08em; font-family:'Inter',sans-serif; font-weight:700;
+    margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid var(--line);
+  }
+  .service-col ul{list-style:none; margin:0; padding:0;}
+  .service-col li{
+    display:flex; gap:12px; padding:11px 0;
+    border-bottom:1px solid rgba(198,161,91,0.14);
+    font-size:0.96rem; line-height:1.5;
+  }
+  .service-col li svg{flex-shrink:0; margin-top:3px;}
+
+  /* ---------- Includes checklist card ---------- */
+  .includes{
+    margin-top:64px; background:var(--navy-2); border:1px solid var(--line);
+    border-radius:4px; padding:36px 40px; display:grid; grid-template-columns:1fr 1fr; gap:14px 40px;
+  }
+  @media(max-width:700px){.includes{grid-template-columns:1fr;}}
+  .includes h3{grid-column:1/-1; font-family:'Inter'; font-weight:700; font-size:0.95rem; color:var(--brass); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:10px;}
+  .includes .item{display:flex; gap:10px; font-size:0.94rem; padding:6px 0;}
+
+  /* ---------- Pricing ---------- */
+  .pricing-table{width:100%; border-collapse:collapse; margin-top:8px;}
+  .pricing-table th{
+    text-align:left; font-family:'Inter'; font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--slate); padding:0 16px 14px; border-bottom:2px solid var(--ink);
+    font-weight:600;
+  }
+  .pricing-table td{
+    padding:20px 16px; border-bottom:1px solid var(--cream-2); font-size:0.98rem;
+  }
+  .pricing-table td.size{font-family:'Fraunces',serif; font-size:1.05rem; font-weight:600;}
+  .pricing-table td.price{color:var(--navy); font-weight:600; text-align:right;}
+  .pricing-table tr:last-child td{border-bottom:none;}
+  .pricing-foot{
+    margin-top:18px; display:flex; justify-content:space-between; align-items:center;
+    padding:18px 16px; background:var(--cream-2); border-radius:2px; font-size:0.95rem;
+  }
+  .pricing-note{font-size:0.85rem; color:var(--slate); margin-top:14px;}
+
+  /* ---------- Why us ---------- */
+  .why-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:32px;}
+  @media(max-width:900px){.why-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:520px){.why-grid{grid-template-columns:1fr;}}
+  .why-card{padding-top:8px;}
+  .why-card .icon{width:38px; height:38px; margin-bottom:18px; color:var(--brass);}
+  .why-card h3{font-size:1.02rem; font-family:'Inter'; font-weight:700; margin-bottom:8px;}
+  .why-card p{font-size:0.9rem; color:var(--slate); line-height:1.55; margin:0;}
+
+  /* ---------- About founder ---------- */
+  .founder{
+    display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; align-items:center;
+  }
+  @media(max-width:800px){.founder{grid-template-columns:1fr;}}
+  .founder-quote{
+    font-family:'Fraunces',serif; font-style:italic; font-size:1.35rem; line-height:1.55;
+    color:var(--ink);
+  }
+  .founder-name{margin-top:24px; font-weight:700; font-family:'Inter'; font-size:0.95rem;}
+  .founder-role{font-size:0.82rem; color:var(--brass); text-transform:uppercase; letter-spacing:0.1em; margin-top:2px;}
+  .founder-art{
+    aspect-ratio:1/1; border-radius:4px; background:var(--navy);
+    display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;
+  }
+  .founder-art .compass{width:62%;}
+
+  /* ---------- Contact / form ---------- */
+  .contact-grid{display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px;}
+  @media(max-width:860px){.contact-grid{grid-template-columns:1fr;}}
+  .contact-info h2{font-size:clamp(1.8rem,3vw,2.2rem); color:var(--white); margin-bottom:18px;}
+  .contact-info p{color:rgba(246,242,233,0.75); line-height:1.65; margin-bottom:32px;}
+  .contact-line{display:flex; gap:14px; align-items:flex-start; padding:14px 0; border-top:1px solid rgba(246,242,233,0.14);}
+  .contact-line:last-child{border-bottom:1px solid rgba(246,242,233,0.14);}
+  .contact-line svg{flex-shrink:0; margin-top:2px; color:var(--brass);}
+  .contact-line a{text-decoration:none; color:var(--cream);}
+  .contact-line a:hover{color:var(--brass-bright);}
+
+  form.inquiry{
+    background:var(--cream); border-radius:4px; padding:36px; box-shadow:var(--shadow);
+  }
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px;}
+  @media(max-width:520px){.form-row{grid-template-columns:1fr;}}
+  .field{display:flex; flex-direction:column; gap:6px; margin-bottom:18px;}
+  .field label{font-size:0.78rem; font-weight:600; letter-spacing:0.03em; color:var(--navy);}
+  .field input, .field select, .field textarea{
+    font-family:'Inter'; font-size:0.95rem; padding:12px 14px; border:1px solid #D8D0BC;
+    border-radius:2px; background:var(--white); color:var(--ink);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    outline:none; border-color:var(--brass);
+  }
+  .field textarea{resize:vertical; min-height:120px;}
+  .form-foot{display:flex; align-items:center; gap:16px; margin-top:6px; flex-wrap:wrap;}
+  .form-status{font-size:0.87rem;}
+  .form-status.ok{color:#1e6b3e;}
+  .form-status.err{color:#a33;}
+  .btn-submit{background:var(--navy); color:var(--white); border:none; font-family:inherit; cursor:pointer;}
+  .btn-submit:hover{background:var(--ink);}
+  .btn-submit:disabled{opacity:0.6; cursor:default;}
+  .hp{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;}
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--ink); color:rgba(246,242,233,0.6); padding:44px 0 28px;
+    font-size:0.85rem;
+  }
+  .foot-grid{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;}
+  .foot-brand{display:flex; align-items:center; gap:10px; color:var(--cream);}
+  .foot-brand .compass{width:22px; height:22px;}
+  footer a{color:rgba(246,242,233,0.6); text-decoration:none;}
+  footer a:hover{color:var(--brass-bright);}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <a href="#top" class="brand">
+      <svg class="brand-mark compass" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="46" stroke="#C6A15B" stroke-width="2"/>
+        <circle cx="50" cy="50" r="3" fill="#C6A15B"/>
+        <path d="M50 8 L58 50 L50 92 L42 50 Z" fill="#C6A15B"/>
+        <path d="M8 50 L50 42 L92 50 L50 58 Z" fill="#F6F2E9" fill-opacity="0.85"/>
+      </svg>
+      <span class="brand-text">
+        <span class="name">Northwest Premier</span><br>
+        <span class="sub">Yacht Management</span>
+      </span>
+    </a>
+    <nav class="links">
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-cta">Request Service</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow" style="color:var(--brass-bright)">Seattle &middot; Puget Sound &middot; The Pacific Northwest</p>
+        <h1>Your yacht.<br>Our priority. <em>Always ready.</em></h1>
+        <p class="lede">Concierge-level yacht management for discerning owners who expect the very best. We care for your vessel as if it were our own — so you can enjoy every moment on the water.</p>
+        <div class="btn-row">
+          <a href="#contact" class="btn btn-primary">Request Service</a>
+          <a href="#services" class="btn btn-ghost">See What's Included</a>
+        </div>
+      </div>
+      <div class="hero-compass-wrap">
+        <svg class="hero-compass compass" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="94" stroke="#C6A15B" stroke-width="1"/>
+          <circle cx="100" cy="100" r="70" stroke="#C6A15B" stroke-opacity="0.5" stroke-width="1"/>
+          <g stroke="#C6A15B" stroke-opacity="0.6" stroke-width="1">
+            <line x1="100" y1="6" x2="100" y2="26"/>
+            <line x1="100" y1="174" x2="100" y2="194"/>
+            <line x1="6" y1="100" x2="26" y2="100"/>
+            <line x1="174" y1="100" x2="194" y2="100"/>
+          </g>
+          <path d="M100 20 L118 100 L100 180 L82 100 Z" fill="#E0BE7C"/>
+          <path d="M20 100 L100 90 L180 100 L100 110 Z" fill="#F6F2E9" fill-opacity="0.9"/>
+          <circle cx="100" cy="100" r="5" fill="#0A1826"/>
+          <text x="100" y="46" text-anchor="middle" fill="#F6F2E9" font-family="Inter" font-size="11" font-weight="600" letter-spacing="2">N</text>
+          <text x="100" y="164" text-anchor="middle" fill="#F6F2E9" font-family="Inter" font-size="11" font-weight="600" letter-spacing="2">S</text>
+          <text x="42" y="104" text-anchor="middle" fill="#F6F2E9" font-family="Inter" font-size="11" font-weight="600" letter-spacing="2">W</text>
+          <text x="158" y="104" text-anchor="middle" fill="#F6F2E9" font-family="Inter" font-size="11" font-weight="600" letter-spacing="2">E</text>
+        </svg>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="coverage-strip">
+        <span>Proudly serving</span>
+        <span class="dot">&bull;</span>
+        <span>Seattle</span>
+        <span class="dot">&bull;</span>
+        <span>Puget Sound</span>
+        <span class="dot">&bull;</span>
+        <span>The Pacific Northwest</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="wrap">
+      <div class="intro-inner reveal">
+        <p class="eyebrow">Peace of mind, every time</p>
+        <h2>We take care of the details, so you can focus on what matters most.</h2>
+        <p>Northwest Premier Yacht Management provides concierge-level care for owners across the Pacific Northwest — weekly and bi-weekly vessel checks, trusted vendor coordination, and full transparency through detailed reports with photos after every visit. Every vessel is treated with the same care and respect as if it were our own.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="bearing">N &middot; Services</span>
+        <h2>Comprehensive care for every aspect of your yacht</h2>
+      </div>
+
+      <div class="services-grid reveal">
+        <div class="service-col">
+          <h3>Internal Services</h3>
+          <ul id="internal-services"></ul>
+        </div>
+        <div class="service-col">
+          <h3>Managed Vendor Services</h3>
+          <ul id="vendor-services"></ul>
+        </div>
+      </div>
+
+      <div class="includes reveal">
+        <h3>Monthly management includes</h3>
+        <div class="item">✓ Weekly or bi-weekly vessel checks</div>
+        <div class="item">✓ Bilge, battery &amp; system inspections</div>
+        <div class="item">✓ Shore power &amp; systems monitoring</div>
+        <div class="item">✓ Interior &amp; exterior walkthroughs</div>
+        <div class="item">✓ Engine room &amp; machinery checks</div>
+        <div class="item">✓ Monthly status reports with photos</div>
+        <div class="item">✓ Maintenance tracking &amp; scheduling</div>
+        <div class="item">✓ Coordination with marina &amp; vendors</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="on-navy">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="bearing">E &middot; Pricing</span>
+        <h2>Monthly management pricing</h2>
+      </div>
+      <div class="reveal">
+        <table class="pricing-table">
+          <thead>
+            <tr><th>Vessel Size</th><th style="text-align:right">Monthly Rate</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="size">30 &ndash; 40 ft</td><td class="price">$350 &ndash; $500</td></tr>
+            <tr><td class="size">40 &ndash; 60 ft</td><td class="price">$600 &ndash; $900</td></tr>
+            <tr><td class="size">60 &ndash; 90 ft+</td><td class="price">$1,000 &ndash; $2,000+</td></tr>
+          </tbody>
+        </table>
+        <div class="pricing-foot">
+          <span>Refit &amp; project management</span>
+          <strong>10&ndash;15% of repair invoices</strong>
+        </div>
+        <p class="pricing-note">Emergency response and 24/7 assistance for unexpected issues — including bilge alarms, dead batteries, and storm events — included for all managed vessels. Final pricing depends on vessel size, condition, and scope of service.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="bearing">S &middot; Why Owners Choose Us</span>
+        <h2>Decades of experience. Local relationships.</h2>
+      </div>
+      <div class="why-grid reveal">
+        <div class="why-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 L20 6 V12 C20 17 16.5 20.5 12 22 C7.5 20.5 4 17 4 12 V6 Z"/></svg>
+          <h3>Experienced &amp; Trusted</h3>
+          <p>Decades of marine industry experience in the Pacific Northwest.</p>
+        </div>
+        <div class="why-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg>
+          <h3>Local Expertise</h3>
+          <p>Strong relationships with top marinas, vendors, and marine professionals.</p>
+        </div>
+        <div class="why-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 L14.5 9 L22 9.5 L16 14.5 L18 22 L12 17.5 L6 22 L8 14.5 L2 9.5 L9.5 9 Z"/></svg>
+          <h3>Concierge Service</h3>
+          <p>Personalized care and clear communication every step of the way.</p>
+        </div>
+        <div class="why-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <h3>Proactive Approach</h3>
+          <p>We prevent issues before they happen and protect your investment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER -->
+  <section id="about" style="background:var(--cream-2)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="bearing">W &middot; About</span>
+        <h2>Your trusted partner on &amp; off the water</h2>
+      </div>
+      <div class="founder reveal">
+        <div class="founder-art">
+          <svg class="compass" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="100" r="90" stroke="#C6A15B" stroke-width="1.5"/>
+            <path d="M100 14 L112 100 L100 186 L88 100 Z" fill="#C6A15B"/>
+            <path d="M14 100 L100 88 L186 100 L100 112 Z" fill="#F6F2E9" fill-opacity="0.85"/>
+            <circle cx="100" cy="100" r="6" fill="#0A1826"/>
+          </svg>
+        </div>
+        <div>
+          <p class="founder-quote">"With more than 20 years of boating experience, I founded Northwest Premier Yacht Management with one goal: to make yacht ownership as enjoyable and stress-free as possible."</p>
+          <p style="margin-top:20px; color:var(--slate); line-height:1.65;">A Pacific Northwest native, Casey has built lasting relationships throughout the local marine industry and is dedicated to providing honest, reliable, and professional service. Every vessel is treated with the same care and respect as if it were his own, giving owners confidence that their investment is in trusted hands.</p>
+          <p class="founder-name">Casey Day</p>
+          <p class="founder-role">Founder, Northwest Premier Yacht Management</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="on-navy">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <p class="eyebrow">Let's connect</p>
+          <h2>Tell us what your yacht needs</h2>
+          <p>Describe the issue or the service you're looking for, and we'll follow up to schedule an inspection or discuss ongoing management.</p>
+
+          <div class="contact-line">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg>
+            <a href="tel:+12064918985">206-491-8985</a>
+          </div>
+          <div class="contact-line">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16v16H4z"/><path d="m4 6 8 7 8-7"/></svg>
+            <a href="mailto:Nwpyachtmanagement@gmail.com">Nwpyachtmanagement@gmail.com</a>
+          </div>
+          <div class="contact-line">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Proudly serving Seattle, Puget Sound, and the Pacific Northwest</span>
+          </div>
+        </div>
+
+        <form class="inquiry reveal" id="inquiry-form">
+          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="vessel">Vessel size</label>
+              <select id="vessel" name="vessel">
+                <option value="">Select one</option>
+                <option>Under 30 ft</option>
+                <option>30 &ndash; 40 ft</option>
+                <option>40 &ndash; 60 ft</option>
+                <option>60 &ndash; 90 ft+</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="issue">What's going on?</label>
+            <textarea id="issue" name="issue" required placeholder="Tell us about the issue, the service you need, or the vessel management you're looking for."></textarea>
+          </div>
+          <div class="form-foot">
+            <button type="submit" class="btn btn-submit" id="submit-btn">Send Request</button>
+            <span class="form-status" id="form-status"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <svg class="compass" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="46" stroke="#C6A15B" stroke-width="2"/>
+        <path d="M50 8 L58 50 L50 92 L42 50 Z" fill="#C6A15B"/>
+      </svg>
+      <span>Northwest Premier Yacht Management</span>
+    </div>
+    <div>&copy; <span id="year"></span> Northwest Premier Yacht Management. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ---- Service list data (kept separate from markup for easy editing) ----
+  var internalServices = [
+    "Preventative maintenance",
+    "Electrical troubleshooting and repair",
+    "Audio visual system repair & maintenance",
+    "Battery testing & replacement",
+    "Bonding system repair & maintenance",
+    "Fresh and grey water system repair & treatment",
+    "Black water system repair & maintenance",
+    "Engine & generator repair & maintenance",
+    "General yacht system repair & maintenance",
+    "New system additions",
+    "Pre survey inspections",
+    "Pre & post trip inspections",
+    "Owner system & electronics training/education",
+    "Winterization services",
+    "Interior cleaning",
+    "Move out and packing services",
+    "Bilge & engine room cleaning and painting"
+  ];
+  var vendorServices = [
+    "Gelcoat & fiberglass repairs",
+    "Hull buff & wax",
+    "Teak cleaning & maintenance",
+    "Haul out, bottom paint, yard services",
+    "Captain services and refueling",
+    "Engine teardown and major project maintenance"
+  ];
+
+  function checkIcon(){
+    return '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#C6A15B" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>';
+  }
+  function fillList(id, items){
+    var ul = document.getElementById(id);
+    ul.innerHTML = items.map(function(t){
+      return '<li>' + checkIcon() + '<span>' + t + '</span></li>';
+    }).join('');
+  }
+  fillList('internal-services', internalServices);
+  fillList('vendor-services', vendorServices);
+
+  // ---- Scroll reveal ----
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // ---- Contact form -> Cloudflare Worker relay ----
+  // Replace with your deployed Worker URL once live (see SETUP.md).
+  var RELAY_URL = "https://nwpym-contact-relay.YOUR-SUBDOMAIN.workers.dev";
+
+  var form = document.getElementById('inquiry-form');
+  var statusEl = document.getElementById('form-status');
+  var submitBtn = document.getElementById('submit-btn');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    // honeypot check
+    if (form._gotcha.value) return;
+
+    var data = {
+      name: form.name.value.trim(),
+      phone: form.phone.value.trim(),
+      email: form.email.value.trim(),
+      vessel: form.vessel.value,
+      issue: form.issue.value.trim()
+    };
+
+    if (!data.name || !data.email || !data.issue) {
+      statusEl.textContent = "Please fill in your name, email, and a description.";
+      statusEl.className = "form-status err";
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending…";
+    statusEl.textContent = "";
+
+    fetch(RELAY_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    })
+    .then(function(res){
+      if (!res.ok) throw new Error("Request failed");
+      return res.json().catch(function(){ return {}; });
+    })
+    .then(function(){
+      statusEl.textContent = "Thanks — we received your request and will follow up shortly.";
+      statusEl.className = "form-status ok";
+      form.reset();
+    })
+    .catch(function(){
+      statusEl.textContent = "Something went wrong. Please call 206-491-8985 or email us directly.";
+      statusEl.className = "form-status err";
+    })
+    .finally(function(){
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send Request";
+    });
+  });
+</script>
+
+</body>
+</html>
