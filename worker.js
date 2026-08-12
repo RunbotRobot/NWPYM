@@ -19,7 +19,7 @@
  *   ALLOWED_ORIGIN   lock CORS to your site's origin once it's live
  */
 
-const DEFAULT_TO_EMAIL = "Nwpyachtmanagement@gmail.com";
+const DEFAULT_TO_EMAIL = "nwpyachtmanagement@gmail.com";
 const DEFAULT_FROM_EMAIL = "onboarding@resend.dev"; // swap once a domain is verified in Resend
 
 export default {

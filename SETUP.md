@@ -36,7 +36,7 @@ The form posts JSON to a Worker, which emails it via **Resend**
 3. Paste in the contents of `worker.js`.
 4. Settings → Variables → add a secret:
    - `RESEND_API_KEY` = your Resend API key (mark as "Encrypt")
-   - Optional: `TO_EMAIL` (defaults to `Nwpyachtmanagement@gmail.com`),
+   - Optional: `TO_EMAIL` (defaults to `nwpyachtmanagement@gmail.com`),
      `FROM_EMAIL`, `ALLOWED_ORIGIN` (set to your live site URL once you have
      one, to lock down who can call the relay)
 5. Deploy. You'll get a URL like
