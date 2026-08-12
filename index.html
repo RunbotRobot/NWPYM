@@ -7,19 +7,19 @@
 <meta name="description" content="Concierge-level yacht management for Seattle, Puget Sound, and the Pacific Northwest. Monthly vessel care, vendor coordination, and refit management from Northwest Premier Yacht Management.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#0A1826;
     --navy:#0F2A44;
     --navy-2:#123253;
-    --brass:#C6A15B;
-    --brass-bright:#E0BE7C;
+    --brass:#C9A227;
+    --brass-bright:#E8C455;
     --cream:#F6F2E9;
     --cream-2:#EFE9DA;
     --slate:#5C6B78;
     --white:#FFFFFF;
-    --line: rgba(198,161,91,0.35);
+    --line: rgba(201,162,39,0.35);
     --shadow: 0 20px 50px -20px rgba(10,24,38,0.35);
   }
   *{box-sizing:border-box;}
@@ -32,8 +32,8 @@
     -webkit-font-smoothing:antialiased;
   }
   h1,h2,h3,.display{
-    font-family:'Fraunces', serif;
-    font-weight:600;
+    font-family:'Montserrat', sans-serif;
+    font-weight:800;
     letter-spacing:-0.01em;
     margin:0;
   }
@@ -93,8 +93,8 @@
   .brand{display:flex; align-items:center; gap:12px; color:var(--white); text-decoration:none;}
   .brand-mark{width:34px; height:34px; flex-shrink:0;}
   .brand-text{line-height:1.05;}
-  .brand-text .name{font-family:'Fraunces',serif; font-size:1.02rem; font-weight:600; letter-spacing:0.01em;}
-  .brand-text .sub{font-size:0.62rem; letter-spacing:0.18em; color:var(--brass); text-transform:uppercase;}
+  .brand-text .name{font-family:'Montserrat',sans-serif; font-size:0.98rem; font-weight:800; letter-spacing:0.01em; text-transform:uppercase;}
+  .brand-text .sub{font-family:'Montserrat',sans-serif; font-size:0.6rem; font-weight:700; letter-spacing:0.16em; color:var(--brass); text-transform:uppercase;}
   nav.links{display:flex; gap:28px; align-items:center;}
   nav.links a{
     color:var(--cream); text-decoration:none; font-size:0.88rem; font-weight:500;
@@ -135,7 +135,7 @@
     font-size:clamp(2.4rem, 5vw, 3.6rem);
     line-height:1.05; margin:18px 0 20px; color:var(--white);
   }
-  .hero h1 em{color:var(--brass-bright); font-style:italic;}
+  .hero h1 em{color:var(--brass-bright); font-style:italic; font-family:'Fraunces',serif; font-weight:600;}
   .hero p.lede{
     font-size:1.08rem; line-height:1.6; color:rgba(246,242,233,0.85);
     max-width:46ch; margin-bottom:32px;
@@ -234,7 +234,11 @@
   @media(max-width:900px){.why-grid{grid-template-columns:1fr 1fr;}}
   @media(max-width:520px){.why-grid{grid-template-columns:1fr;}}
   .why-card{padding-top:8px;}
-  .why-card .icon{width:38px; height:38px; margin-bottom:18px; color:var(--brass);}
+  .why-card .icon-badge{
+    width:64px; height:64px; border-radius:50%; border:1.5px solid var(--brass);
+    display:flex; align-items:center; justify-content:center; margin-bottom:18px;
+  }
+  .why-card .icon{width:28px; height:28px; color:var(--brass);}
   .why-card h3{font-size:1.02rem; font-family:'Inter'; font-weight:700; margin-bottom:8px;}
   .why-card p{font-size:0.9rem; color:var(--slate); line-height:1.55; margin:0;}
 
@@ -454,22 +458,22 @@
       </div>
       <div class="why-grid reveal">
         <div class="why-card">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 L20 6 V12 C20 17 16.5 20.5 12 22 C7.5 20.5 4 17 4 12 V6 Z"/></svg>
+          <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 L20 6 V12 C20 17 16.5 20.5 12 22 C7.5 20.5 4 17 4 12 V6 Z"/></svg></span>
           <h3>Experienced &amp; Trusted</h3>
           <p>Decades of marine industry experience in the Pacific Northwest.</p>
         </div>
         <div class="why-card">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg>
+          <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg></span>
           <h3>Local Expertise</h3>
           <p>Strong relationships with top marinas, vendors, and marine professionals.</p>
         </div>
         <div class="why-card">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 L14.5 9 L22 9.5 L16 14.5 L18 22 L12 17.5 L6 22 L8 14.5 L2 9.5 L9.5 9 Z"/></svg>
+          <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 L14.5 9 L22 9.5 L16 14.5 L18 22 L12 17.5 L6 22 L8 14.5 L2 9.5 L9.5 9 Z"/></svg></span>
           <h3>Concierge Service</h3>
           <p>Personalized care and clear communication every step of the way.</p>
         </div>
         <div class="why-card">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <span class="icon-badge"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>
           <h3>Proactive Approach</h3>
           <p>We prevent issues before they happen and protect your investment.</p>
         </div>
